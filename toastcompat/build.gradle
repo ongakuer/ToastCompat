@@ -1,24 +1,26 @@
 apply plugin: 'com.android.library'
 
 ext {
-	releaseNoteFile = 'ChangeLog.md'            // 相对路径，填仓库下该文件地址即可
-	libraryName = 'ToastCompat'                 // bintray项目名字以及aar的名字，确定好了就不要在修改了
+    releaseNoteFile = 'ChangeLog.md' // 相对路径，填仓库下该文件地址即可
+    libraryName = 'ToastCompat' // bintray项目名字以及aar的名字，确定好了就不要在修改了
 
-	//compile 'publishedGroupId:artifact:libraryVersionName'
+    //compile 'publishedGroupId:artifact:libraryVersionName'
 
-	publishedGroupId = 'io.github.zhitaocai'    // 项目组ID(e.g 包名为io.github.zhitaocai.toastcompat, 那么这里就是io.github.zhitaocai)
-	artifact = 'toastcompat'                    // 项目ID  (e.g 包名为io.github.zhitaocai.toastcompat, 那么这里就是toastcompat)
-	libraryVersionName = '0.1.0'                // 对应的versionname
+    publishedGroupId = 'io.github.zhitaocai'
+    // 项目组ID(e.g 包名为io.github.zhitaocai.toastcompat, 那么这里就是io.github.zhitaocai)
+    artifact = 'toastcompat' // 项目ID  (e.g 包名为io.github.zhitaocai.toastcompat, 那么这里就是toastcompat)
+    libraryVersionName = '0.1.0' // 对应的versionname
 
-	libraryVersionCode = 1
-	libDesc = 'A Compatible Toast to solve the problem that default system toast can\'t show on MIUI\'s OS when app running in ' +
-			'the background'                                    // 项目描述
-	libraryVersionDesc = libDesc                                // 当前版本下的项目描述
-	repoTag = libraryVersionName                                // 当前版本下所对应的仓库的tag
-	gitRepo = 'zhitaocai/ToastCompat'                           // 仓库短地址
-	siteUrl = 'https://github.com/zhitaocai/ToastCompat'
-	gitUrl = 'https://github.com/zhitaocai/ToastCompat.git'
-	issueUrl = 'https://github.com/zhitaocai/ToastCompat/issues'
+    libraryVersionCode = 1
+    libDesc =
+            'A Compatible Toast to solve the problem that default system toast can\'t show on MIUI\'s OS when app running in ' +
+                    'the background' // 项目描述
+    libraryVersionDesc = libDesc // 当前版本下的项目描述
+    repoTag = libraryVersionName // 当前版本下所对应的仓库的tag
+    gitRepo = 'zhitaocai/ToastCompat' // 仓库短地址
+    siteUrl = 'https://github.com/zhitaocai/ToastCompat'
+    gitUrl = 'https://github.com/zhitaocai/ToastCompat.git'
+    issueUrl = 'https://github.com/zhitaocai/ToastCompat/issues'
 }
 
 //ext {
@@ -47,29 +49,28 @@ ext {
 //}
 
 android {
-	compileSdkVersion 23
-	buildToolsVersion "23.0.2"
+    compileSdkVersion 23
+    buildToolsVersion "23.0.3"
 
-	defaultConfig {
-		minSdkVersion 14
-		targetSdkVersion 23
-		versionCode libraryVersionCode
-		versionName libraryVersionName
-		// versionName libraryVersion
-	}
-	buildTypes {
-		release {
-			minifyEnabled false
-			proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-		}
-	}
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 23
+        versionCode libraryVersionCode
+        versionName libraryVersionName
+        // versionName libraryVersion
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
 }
 
 dependencies {
-	compile fileTree(dir: 'libs', include: ['*.jar'])
-	testCompile 'junit:junit:4.12'
+    compile fileTree(dir: 'libs', include: ['*.jar'])
 }
 
-apply from: 'publish.gradle'
+//apply from: 'publish.gradle'
 //apply from: 'install.gradle'
 //apply from: 'release.gradle'
